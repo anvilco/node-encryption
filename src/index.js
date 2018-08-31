@@ -28,7 +28,7 @@ export function encryptRSA (publicKey, message) {
     padding: crypto.RSA_PKCS1_OAEP_PADDING,
   }, Buffer.from(aesKey))
   const encAesKey = enc.toString('base64')
-  return `${encAesKey}:${encryptAES(message, aesKey)}`
+  return `${encAesKey}:${encryptAES(aesKey, message)}`
 }
 
 // Public: Decrypt with RSA algorithm
@@ -46,7 +46,7 @@ export function decryptRSA (privateKey, message) {
     padding: crypto.RSA_PKCS1_OAEP_PADDING,
   }, Buffer.from(encAesKey, 'base64'))
   const aesKey = enc.toString()
-  return decryptAES(encryptedMessage, aesKey)
+  return decryptAES(aesKey, encryptedMessage)
 }
 
 //
