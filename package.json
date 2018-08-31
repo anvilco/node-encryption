@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha --require test/environment.js 'test/**/*.test.js'",
     "build": "babel src --out-dir lib",
-    "prepublish": "yarn build"
+    "prepare": "yarn build"
   },
   "repository": {
     "type": "git",
