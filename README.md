@@ -80,3 +80,7 @@ function generateRSAKeypair () {
   }
 }
 ```
+
+## License
+
+MIT
