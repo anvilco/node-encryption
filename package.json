@@ -1,6 +1,6 @@
 {
   "name": "@anvilco/encryption",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "RSA and AES Encryption helpers",
   "main": "lib/index.js",
   "scripts": {
