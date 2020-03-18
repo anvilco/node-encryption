@@ -17,11 +17,16 @@ import { encryptRSA, decryptRSA } from '@anvilco/encryption'
 // For AES functions
 import { generateAESKey, encryptAES, decryptAES } from '@anvilco/encryption'
 
+// Could grab the keys from file (or preferably from environment variables)
+import fs from 'fs'
+const privateKey = fs.readFileSync('path/to/privateKey.pem')
+const publicKey = fs.readFileSync('path/to/publicKey.pem')
+
 
 // RSA
 const message = 'Super secret message'
-const encryptedRSAMessage = encryptRSA('...public key....', message)
-const origRSAMessage = decryptRSA('...private key....', encryptedRSAMessage)
+const encryptedRSAMessage = encryptRSA(publicKey, message)
+const origRSAMessage = decryptRSA(privateKey, encryptedRSAMessage)
 console.log(origRSAMessage === message) // => true
 
 // AES
@@ -66,7 +71,19 @@ Note the encrypted payload (result of `encryptRSA`) is in the format:
 
 #### Generating RSA keys
 
-This library does not have a way to generate RSA keys. You can use openssl or something like [node-rsa](https://github.com/rzcoder/node-rsa):
+This library does not have a way to generate RSA keys.
+
+You could use openssl:
+```sh
+# This generates a 2048 bit private key to file
+openssl genrsa -out privateKey.pem 2048
+
+# This extracts the public key to file
+openssl rsa -in privateKey.pem -outform PEM -pubout -out publicKey.pem
+```
+
+
+You could also use something like [node-rsa](https://github.com/rzcoder/node-rsa):
 
 ```js
 // Example generating a RSA keypair with node-rsa
