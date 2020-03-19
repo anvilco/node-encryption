@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha --require test/environment.js 'test/**/*.test.js'",
     "build": "babel src --out-dir lib",
-    "prepare": "yarn build"
+    "prepare": "yarn build",
+    "version": "auto-changelog -p --template changelog_template.hbs && git add CHANGELOG.md"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,7 @@
     "@babel/core": "^7.8.7",
     "@babel/preset-env": "^7.8.7",
     "@babel/register": "^7.8.6",
+    "auto-changelog": "^1.16.2",
     "babel-eslint": "^10.1.0",
     "chai": "^4.1.2",
     "eslint": "^6.8.0",
@@ -43,5 +45,8 @@
     "mocha": "^7.1.1",
     "sinon": "^9.0.1",
     "sinon-chai": "^3.5.0"
+  },
+  "resolutions": {
+    "auto-changelog/handlebars/optimist/minimist": "^1.2.5"
   }
 }
