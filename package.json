@@ -7,7 +7,7 @@
     "test": "mocha --require test/environment.js 'test/**/*.test.js'",
     "build": "babel src --out-dir lib",
     "prepare": "yarn build",
-    "version": "auto-changelog -p --template changelog_template.hbs && git add CHANGELOG.md"
+    "version": "auto-changelog -p --template keepachangelog && git add CHANGELOG.md"
   },
   "repository": {
     "type": "git",
