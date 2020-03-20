@@ -1,4 +1,4 @@
-import * as encryption from '../src/index'
+const encryption = require('../src/index')
 
 describe('encryption', function () {
   describe('AES', function () {
