@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha --require test/environment.js 'test/**/*.test.js'",
     "build": "babel src --out-dir lib",
-    "prepare": "yarn build"
+    "prepare": "yarn build",
+    "version": "auto-changelog -p --template keepachangelog && git add CHANGELOG.md"
   },
   "repository": {
     "type": "git",
@@ -25,22 +26,27 @@
   },
   "homepage": "https://github.com/anvilco/node-encryption#readme",
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-eslint": "^9.0.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-stage-2": "^6.24.1",
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
+    "@babel/register": "^7.8.6",
+    "auto-changelog": "^1.16.2",
+    "babel-eslint": "^10.1.0",
     "chai": "^4.1.2",
-    "eslint": "^5.4.0",
+    "eslint": "^6.8.0",
     "eslint-config-nicenice": "^1.1.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-config-standard-jsx": "^6.0.2",
-    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-node": "^7.0.1",
     "eslint-plugin-promise": "^4.0.0",
-    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-standard": "^4.0.0",
-    "mocha": "^5.2.0",
-    "sinon": "^6.1.5",
-    "sinon-chai": "^3.2.0"
+    "mocha": "^7.1.1",
+    "sinon": "^9.0.1",
+    "sinon-chai": "^3.5.0"
+  },
+  "resolutions": {
+    "auto-changelog/handlebars/optimist/minimist": "^1.2.5"
   }
 }

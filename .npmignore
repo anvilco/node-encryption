@@ -3,3 +3,5 @@ src/
 yarn.lock
 .babelrc
 .eslintrc.js
+*.pem
+*_template.md
