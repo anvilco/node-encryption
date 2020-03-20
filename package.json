@@ -23,6 +23,10 @@
     "url": "https://github.com/anvilco/node-encryption/issues"
   },
   "homepage": "https://github.com/anvilco/node-encryption#readme",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "@anvilco:registry": "https://registry.npmjs.org"
+  },
   "devDependencies": {
     "auto-changelog": "^1.16.2",
     "babel-eslint": "^10.1.0",
