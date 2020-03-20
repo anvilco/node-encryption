@@ -2,10 +2,10 @@
 // https://gist.github.com/vlucas/2bd40f62d20c1d49237a109d491974eb
 // http://vancelucas.com/blog/stronger-encryption-and-decryption-in-node-js/
 
-import crypto from 'crypto'
+const crypto = require('crypto')
 
-export const IVLength = 16 // For AES, this is always 16
-export const AESKeyLength = 32 // Must be 256 bits (32 characters)
+const IVLength = 16 // For AES, this is always 16
+const AESKeyLength = 32 // Must be 256 bits (32 characters)
 
 //
 // RSA
@@ -21,7 +21,7 @@ export const AESKeyLength = 32 // Must be 256 bits (32 characters)
 //
 // Returns a {String} like 'abcdef:abcdef:abcdef'
 //   which is '<rsaEncryptedAESKey:aesIV:aesEncryptedMessage>'
-export function encryptRSA (publicKey, message) {
+function encryptRSA (publicKey, message) {
   const aesKey = generateAESKey()
   const enc = crypto.publicEncrypt({
     key: publicKey,
@@ -37,7 +37,7 @@ export function encryptRSA (publicKey, message) {
 // * `message` {String} Encrypted message to decrypt
 //
 // Returns {String} decrypted message
-export function decryptRSA (privateKey, message) {
+function decryptRSA (privateKey, message) {
   const index = message.indexOf(':')
   const encAesKey = message.slice(0, index)
   const encryptedMessage = message.slice(index + 1)
@@ -54,7 +54,7 @@ export function decryptRSA (privateKey, message) {
 //
 
 // Public: Returns a {String} random AES key
-export function generateAESKey () {
+function generateAESKey () {
   return Buffer.from(crypto.randomBytes(32)).toString('hex')
 }
 
@@ -64,7 +64,7 @@ export function generateAESKey () {
 // * `message` {String} Message to encrypt
 //
 // Returns {String} encrypted message
-export function encryptAES (key, message) {
+function encryptAES (key, message) {
   const iv = crypto.randomBytes(IVLength)
   const cipher = crypto.createCipheriv('aes-256-cbc', Buffer.from(key, 'hex'), iv)
   let encrypted = cipher.update(message)
@@ -78,7 +78,7 @@ export function encryptAES (key, message) {
 // * `message` {String} Encrypted message to decrypt
 //
 // Returns {String} decrypted message
-export function decryptAES (key, message) {
+function decryptAES (key, message) {
   const textParts = message.split(':')
   const iv = Buffer.from(textParts.shift(), 'hex')
   const encryptedText = Buffer.from(textParts.join(':'), 'hex')
@@ -86,4 +86,14 @@ export function decryptAES (key, message) {
   let decrypted = decipher.update(encryptedText)
   decrypted = Buffer.concat([decrypted, decipher.final()])
   return decrypted.toString()
+}
+
+module.exports = {
+  IVLength,
+  AESKeyLength,
+  encryptRSA,
+  decryptRSA,
+  generateAESKey,
+  encryptAES,
+  decryptAES,
 }
