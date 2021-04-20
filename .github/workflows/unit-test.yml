@@ -19,7 +19,7 @@ jobs:
           restore-keys: |
             v1-
       - name: Install dependencies
-        if: steps.yarn-cache.outputs.cache-hit == 'false'
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn install
       - name: Run Tests
         run: yarn test
