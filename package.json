@@ -44,8 +44,5 @@
     "mocha": "^9.2.2",
     "sinon": "^13.0.1",
     "sinon-chai": "^3.7.0"
-  },
-  "resolutions": {
-    "auto-changelog/handlebars/optimist/minimist": "^1.2.5"
   }
 }
