@@ -28,7 +28,7 @@
     "@anvilco:registry": "https://registry.npmjs.org"
   },
   "devDependencies": {
-    "auto-changelog": "^1.16.2",
+    "auto-changelog": "^2.4.0",
     "babel-eslint": "^10.1.0",
     "chai": "^4.3.6",
     "eslint": "^8.11.0",
