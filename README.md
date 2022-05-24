@@ -1,6 +1,6 @@
 # Anvil Encryption
 
-This library is a small wrapper around node's `crypto` library. It offers convenience methods for encrypting and decrypting arbitrary payloads in both AES and RSA. 
+This library is a small wrapper around node's `crypto` library. It offers convenience methods for encrypting and decrypting arbitrary payloads in both AES and RSA.
 
 For use encrypting / decrypting payloads in Anvil, you can generate an RSA keypair from your [organization's settings page](https://www.useanvil.com/docs/api/getting-started#encryption).
 
@@ -13,7 +13,7 @@ For use encrypting / decrypting payloads in Anvil, you can generate an RSA keypa
 3. [Etch E-sign with API](https://www.useanvil.com/products/etch/) - customizable, embeddable, e-signature platform with an API to control the signing process end-to-end.
 4. [Anvil Workflows (w/ API)](https://www.useanvil.com/products/workflows/) - Webforms + PDF + E-sign with a powerful no-code builder. Easily collect structured data, generate PDFs, and request signatures.
 
-Learn more about Anvil on our [Anvil developer page](www.useanvil.com/developers).
+Learn more about Anvil on our [Anvil developer page](https://www.useanvil.com/developers).
 
 ## Install
 
